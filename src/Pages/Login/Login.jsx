@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
+
 
 const Login = () => {
 
     const [passwordVisible, setPasswordVisible] = useState(false)
+
+    const {login}=useContext(AuthContext)
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
@@ -12,8 +17,23 @@ const Login = () => {
 
     const handleLogIn = (event) => {
         event.preventDefault();
-    
+        const form=event.target;
+        const email = form.email.value;
+        const password = form.password.value;
 
+        login(email,password)
+        .then(result=>{
+            const user=result.user;
+            console.log(user)
+        })
+        .catch((error) => {
+            console.log(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Sorry...',
+                text: 'Invalid email or password',
+            })
+        });
     }
 
     return (
