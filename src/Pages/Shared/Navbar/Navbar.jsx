@@ -16,7 +16,7 @@ const Navbar = () => {
     const options = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>All Toys</Link></li>
-        <li><Link to='/about'>Blog</Link></li>
+        <li><Link to='/blogs'>Blog</Link></li>
         {
             user?.email ? <>
                 <li><Link to='/bookings'>Add a Toy</Link></li>
