@@ -7,14 +7,19 @@ export const AuthContext = createContext();
 const auth = getAuth(app)
 
 
+
 const AuthProvider = ({ children }) => {
+
+    const [signedUser,setSignedUser]=useState(null)
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const registerUser = (email, password,confirmPassword) => {
+    const registerUser = (email, password,photo,name) => {
         setLoading(true)
-        return createUserWithEmailAndPassword(auth, email, password,confirmPassword)
+        setSignedUser({name : name,email:email,photo:photo})
+        return createUserWithEmailAndPassword(auth, email, password)
+
     }
 
     const login = (email,password)=>{
@@ -44,7 +49,8 @@ const AuthProvider = ({ children }) => {
         loading,
        registerUser,
         login,
-        logOut
+        logOut,
+        signedUser,
     }
 
 

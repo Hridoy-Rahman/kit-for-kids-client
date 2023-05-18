@@ -6,20 +6,21 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [passwordVisible, setPasswordVisible] = useState(false)
-    const {registerUser}=useContext(AuthContext)
+    const { registerUser } = useContext(AuthContext)
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
 
-    const handleSignup=(event)=>{
+    const handleSignup = (event) => {
         event.preventDefault()
-        const form=event.target;
+        const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const photo = form.photo.value;
 
-        registerUser(email, password)
+        registerUser(email, password,photo,name)
             .then((result) => {
                 const user = result.user;
                 console.log(user);
@@ -73,12 +74,18 @@ const SignUp = () => {
                                         {passwordVisible ? <FaEyeSlash /> : <FaEye />}
                                     </button>
                                 </div>
-                                
 
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+
                             </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input type="url" name='photo' placeholder="Photo URL" className="input input-bordered" />
+                            </div>
+                            <label className="label">
+                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                            </label>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
                             </div>
