@@ -20,7 +20,7 @@ const Navbar = () => {
                 <Link><img className='h-12' src="https://i.ibb.co/KLj30WC/logo.png" alt="" /></Link>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-info">Login</button>
+                <Link to='/login'><button className="btn btn-info">Login</button></Link>
             </div>
         </div>
     );
