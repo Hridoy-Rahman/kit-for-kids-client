@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { FaArrowRight, FaStar, FaStarHalf } from 'react-icons/fa';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import ProductCard from './ProductCard';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -55,34 +55,9 @@ const Products = () => {
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {engineeringToys.map((product) => (
 
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6 ">
-                                        <figure>
-                                            <img
-                                                className="h-60 w-60 rounded-xl"
-                                                src={product.picture_url}
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div className="card-body">
-                                            <h2 className="card-title text-white text-xl font-bold">{product.name}</h2>
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h2 className="text-lg font-semibold text-orange-300">
-                                                        Price : {product.price}
-                                                    </h2>
-                                                    <p className="flex items-center text-orange-500">
-                                                        <span className="mr-2">{product.rating}</span>
-                                                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf />
-                                                    </p>
-                                                </div>
-                                                <div className="card-actions justify-end">
-                                                    <button className="btn btn-primary">
-                                                        <FaArrowRight />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={product.product_id}
+                                        product={product}
+                                        className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
 
                                 ))}
                             </div>
@@ -91,34 +66,10 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {mathToys.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
-                                        <figure>
-                                            <img
-                                                className="h-60 w-60 rounded-xl"
-                                                src={product.picture_url}
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div className="card-body">
-                                            <h2 className="card-title text-white text-xl font-bold">{product.name}</h2>
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h2 className="text-lg font-semibold text-orange-300">
-                                                        Price : {product.price}
-                                                    </h2>
-                                                    <p className="flex items-center text-orange-500">
-                                                        <span className="mr-2">{product.rating}</span>
-                                                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf />
-                                                    </p>
-                                                </div>
-                                                <div className="card-actions justify-end">
-                                                    <button className="btn btn-primary">
-                                                        <FaArrowRight />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={product.product_id}
+                                        product={product}
+                                        className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
+
                                 ))}
                             </div>
                         </TabPanel>
@@ -126,34 +77,10 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {scienceToys.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
-                                        <figure>
-                                            <img
-                                                className="h-60 w-60 rounded-xl"
-                                                src={product.picture_url}
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div className="card-body">
-                                            <h2 className="card-title text-white text-xl font-bold">{product.name}</h2>
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h2 className="text-lg font-semibold text-orange-300">
-                                                        Price : {product.price}
-                                                    </h2>
-                                                    <p className="flex items-center text-orange-500">
-                                                        <span className="mr-2">{product.rating}</span>
-                                                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf />
-                                                    </p>
-                                                </div>
-                                                <div className="card-actions justify-end">
-                                                    <button className="btn btn-primary">
-                                                        <FaArrowRight />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={product.product_id}
+                                        product={product}
+                                        className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
+
                                 ))}
                             </div>
                         </TabPanel>
@@ -161,34 +88,10 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {languageToys.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
-                                        <figure>
-                                            <img
-                                                className="h-60 w-60 rounded-xl"
-                                                src={product.picture_url}
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div className="card-body">
-                                            <h2 className="card-title text-white text-xl font-bold">{product.name}</h2>
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h2 className="text-lg font-semibold text-orange-300">
-                                                        Price : {product.price}
-                                                    </h2>
-                                                    <p className="flex items-center text-orange-500">
-                                                        <span className="mr-2">{product.rating}</span>
-                                                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf />
-                                                    </p>
-                                                </div>
-                                                <div className="card-actions justify-end">
-                                                    <button className="btn btn-primary">
-                                                        <FaArrowRight />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={product.product_id}
+                                        product={product}
+                                        className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
+
                                 ))}
                             </div>
                         </TabPanel>
@@ -207,34 +110,10 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {sportsCars.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
-                                        <figure>
-                                            <img
-                                                className="h-60 w-60 rounded-xl"
-                                                src={product.picture_url}
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div className="card-body">
-                                            <h2 className="card-title text-white text-xl font-bold">{product.name}</h2>
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h2 className="text-lg font-semibold text-orange-300">
-                                                        Price : {product.price}
-                                                    </h2>
-                                                    <p className="flex items-center text-orange-500">
-                                                        <span className="mr-2">{product.rating}</span>
-                                                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf />
-                                                    </p>
-                                                </div>
-                                                <div className="card-actions justify-end">
-                                                    <button className="btn btn-primary">
-                                                        <FaArrowRight />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={product.product_id}
+                                        product={product}
+                                        className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
+
                                 ))}
                             </div>
                         </TabPanel>
@@ -242,34 +121,10 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {regularCars.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 mb-6 shadow-xl py-2">
-                                        <figure>
-                                            <img
-                                                className="h-60 w-60 rounded-xl"
-                                                src={product.picture_url}
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div className="card-body">
-                                            <h2 className="card-title text-white text-xl font-bold">{product.name}</h2>
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h2 className="text-lg font-semibold text-orange-300">
-                                                        Price : {product.price}
-                                                    </h2>
-                                                    <p className="flex items-center text-orange-500">
-                                                        <span className="mr-2">{product.rating}</span>
-                                                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf />
-                                                    </p>
-                                                </div>
-                                                <div className="card-actions justify-end">
-                                                    <button className="btn btn-primary">
-                                                        <FaArrowRight />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={product.product_id}
+                                        product={product}
+                                        className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
+
                                 ))}
                             </div>
                         </TabPanel>
@@ -277,34 +132,10 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {trucks.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
-                                        <figure>
-                                            <img
-                                                className="h-60 w-60 rounded-xl"
-                                                src={product.picture_url}
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div className="card-body">
-                                            <h2 className="card-title text-white text-xl font-bold">{product.name}</h2>
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h2 className="text-lg font-semibold text-orange-300">
-                                                        Price : {product.price}
-                                                    </h2>
-                                                    <p className="flex items-center text-orange-500">
-                                                        <span className="mr-2">{product.rating}</span>
-                                                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf />
-                                                    </p>
-                                                </div>
-                                                <div className="card-actions justify-end">
-                                                    <button className="btn btn-primary">
-                                                        <FaArrowRight />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={product.product_id}
+                                        product={product}
+                                        className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
+
                                 ))}
                             </div>
                         </TabPanel>
@@ -323,34 +154,10 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {villains.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
-                                        <figure>
-                                            <img
-                                                className="h-60 w-60 rounded-xl"
-                                                src={product.picture_url}
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div className="card-body">
-                                            <h2 className="card-title text-white text-xl font-bold">{product.name}</h2>
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h2 className="text-lg font-semibold text-orange-300">
-                                                        Price : {product.price}
-                                                    </h2>
-                                                    <p className="flex items-center text-orange-500">
-                                                        <span className="mr-2">{product.rating}</span>
-                                                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf />
-                                                    </p>
-                                                </div>
-                                                <div className="card-actions justify-end">
-                                                    <button className="btn btn-primary">
-                                                        <FaArrowRight />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={product.product_id}
+                                        product={product}
+                                        className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
+
                                 ))}
                             </div>
                         </TabPanel>
@@ -358,34 +165,10 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {superheroes.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 mb-6 shadow-xl py-2">
-                                        <figure>
-                                            <img
-                                                className="h-60 w-60 rounded-xl"
-                                                src={product.picture_url}
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div className="card-body">
-                                            <h2 className="card-title text-white text-xl font-bold">{product.name}</h2>
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h2 className="text-lg font-semibold text-orange-300">
-                                                        Price : {product.price}
-                                                    </h2>
-                                                    <p className="flex items-center text-orange-500">
-                                                        <span className="mr-2">{product.rating}</span>
-                                                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf />
-                                                    </p>
-                                                </div>
-                                                <div className="card-actions justify-end">
-                                                    <button className="btn btn-primary">
-                                                        <FaArrowRight />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={product.product_id}
+                                        product={product}
+                                        className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
+
                                 ))}
                             </div>
                         </TabPanel>
@@ -393,34 +176,10 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {heroes.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 mb-6 shadow-xl py-2">
-                                        <figure>
-                                            <img
-                                                className="h-60 w-60 rounded-xl"
-                                                src={product.picture_url}
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div className="card-body">
-                                            <h2 className="card-title text-white text-xl font-bold">{product.name}</h2>
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h2 className="text-lg font-semibold text-orange-300">
-                                                        Price : {product.price}
-                                                    </h2>
-                                                    <p className="flex items-center text-orange-500">
-                                                        <span className="mr-2">{product.rating}</span>
-                                                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf />
-                                                    </p>
-                                                </div>
-                                                <div className="card-actions justify-end">
-                                                    <button className="btn btn-primary">
-                                                        <FaArrowRight />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ProductCard key={product.product_id}
+                                        product={product}
+                                        ></ProductCard>
+
                                 ))}
                             </div>
                         </TabPanel>

@@ -15,12 +15,12 @@ const Navbar = () => {
 
     const options = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/about'>All Toys</Link></li>
+        <li><Link to='/alltoy'>All Toys</Link></li>
         <li><Link to='/blogs'>Blog</Link></li>
         {
             user?.email ? <>
-                <li><Link to='/bookings'>Add a Toy</Link></li>
-                <li><Link to='/bookings'>My Toys</Link></li>
+                <li><Link to='/addatoy'>Add a Toy</Link></li>
+                <li><Link to='/mytoy'>My Toys</Link></li>
                 <li><button onClick={handleLogout}>log Out</button></li>
             </> :
                 <li><Link to='/login'>Login</Link></li>
@@ -47,23 +47,29 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-            {
-            user?.email ? <>
-                
-                <button onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-                    {
-                        signedUser?.photo ?
-                            hovered ? 
-                                <img className='h-8 w-8 rounded' src={signedUser.photo} alt={signedUser.name} /> :
-                                <img className='h-8 w-8 rounded' src={signedUser.photo} alt='' />
-                            :
-                            <img className='h-8 w-8 rounded' src="https://i.ibb.co/Q69zGY7/profile-Logo.png" alt="" />
-                    }
-                </button>
-            </> :
-               <Link to='/signup'>Sign Up</Link>
+                {
+                    user?.email ? <>
 
-        }
+                        <button onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+                            {signedUser?.photo ? (
+                                hovered ?
+                                    <>
+                                        <img className='h-8 w-8 rounded' src={signedUser.photo} alt={signedUser.name} />
+                                        <div className="tooltip">{signedUser.name}</div>
+                                    </>
+                                    :
+
+                                    <>
+                                        <img className='h-8 w-8 rounded' src={signedUser.photo} alt='' />
+                                    </>
+                            ) : (
+                                <img className='h-8 w-8 rounded' src="https://i.ibb.co/Q69zGY7/profile-Logo.png" alt="" />
+                            )}
+                        </button>
+                    </> :
+                        <Link to='/signup'>Sign Up</Link>
+
+                }
             </div>
         </div>
     );
