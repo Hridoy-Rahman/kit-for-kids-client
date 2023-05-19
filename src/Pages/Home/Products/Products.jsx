@@ -7,7 +7,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('products.json')
+        fetch('http://localhost:5000/products')
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);
@@ -55,7 +55,7 @@ const Products = () => {
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {engineeringToys.map((product) => (
 
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2">
+                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6 ">
                                         <figure>
                                             <img
                                                 className="h-60 w-60 rounded-xl"
@@ -91,7 +91,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {mathToys.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2">
+                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
                                         <figure>
                                             <img
                                                 className="h-60 w-60 rounded-xl"
@@ -126,7 +126,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {scienceToys.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2">
+                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
                                         <figure>
                                             <img
                                                 className="h-60 w-60 rounded-xl"
@@ -161,7 +161,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {languageToys.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2">
+                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
                                         <figure>
                                             <img
                                                 className="h-60 w-60 rounded-xl"
@@ -207,7 +207,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {sportsCars.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2">
+                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
                                         <figure>
                                             <img
                                                 className="h-60 w-60 rounded-xl"
@@ -242,7 +242,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {regularCars.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2">
+                                    <div key={product.product_id} className="card w-80 bg-base-100 mb-6 shadow-xl py-2">
                                         <figure>
                                             <img
                                                 className="h-60 w-60 rounded-xl"
@@ -277,7 +277,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {trucks.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2">
+                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
                                         <figure>
                                             <img
                                                 className="h-60 w-60 rounded-xl"
@@ -323,7 +323,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {villains.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2">
+                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2 mb-6">
                                         <figure>
                                             <img
                                                 className="h-60 w-60 rounded-xl"
@@ -358,7 +358,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {superheroes.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2">
+                                    <div key={product.product_id} className="card w-80 bg-base-100 mb-6 shadow-xl py-2">
                                         <figure>
                                             <img
                                                 className="h-60 w-60 rounded-xl"
@@ -393,7 +393,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {heroes.map((product) => (
-                                    <div key={product.product_id} className="card w-80 bg-base-100 shadow-xl py-2">
+                                    <div key={product.product_id} className="card w-80 bg-base-100 mb-6 shadow-xl py-2">
                                         <figure>
                                             <img
                                                 className="h-60 w-60 rounded-xl"
