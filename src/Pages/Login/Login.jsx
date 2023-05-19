@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -25,6 +25,7 @@ const Login = () => {
         .then(result=>{
             const user=result.user;
             console.log(user)
+            return <Navigate to='/'></Navigate>
         })
         .catch((error) => {
             console.log(error);

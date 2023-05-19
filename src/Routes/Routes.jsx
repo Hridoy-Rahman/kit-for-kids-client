@@ -7,7 +7,6 @@ import Blogs from "../Pages/Blogs/Blogs";
 import ToyDetails from "../Pages/ToyDetails/ToyDetails";
 import AllToy from "../Pages/AllToy/AllToy";
 import AddAToy from "../Pages/AddAToy/AddAToy";
-import MyToys from "../Pages/MyToys/MyToys";
 
 
 
@@ -33,10 +32,6 @@ const router = createBrowserRouter([
             element: <Blogs></Blogs>
         },
         {
-          path:"toydetails",
-          element:<ToyDetails></ToyDetails>
-        },
-        {
           path:"alltoy",
           element: <AllToy></AllToy>
         },
@@ -45,9 +40,11 @@ const router = createBrowserRouter([
           element: <AddAToy></AddAToy>
         },
         {
-          path:"mytoy",
-          element: <MyToys></MyToys>
-        }
+          path:"toydetails/:id",
+          element:<ToyDetails></ToyDetails>,
+          loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+        } 
+
       ]
     },
   ]);
