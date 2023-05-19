@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
                 <img
                     className="h-60 w-60 rounded-xl"
                     src={product.picture_url}
-                    alt="Shoes"
+                    alt=""
                 />
             </figure>
             <div className="card-body">

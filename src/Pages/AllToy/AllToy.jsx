@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function AllToys() {
     const [toys, setToys] = useState([]);
@@ -6,7 +7,7 @@ function AllToys() {
     const [limit, setLimit] = useState(20);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products?_limit=${limit}`)
+        fetch(`http://localhost:5000/addedtoy`)
             .then((response) => response.json())
             .then((data) => setToys(data))
             .catch((error) => console.error(error));
@@ -19,10 +20,6 @@ function AllToys() {
     const handleSeeMore = () => {
         console.log(limit);
         setLimit(limit + 20);
-    };
-
-    const viewDetails = (id) => {
-        // implement viewDetails function
     };
 
     return (
@@ -54,12 +51,9 @@ function AllToys() {
                             <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.price}</td>
                             <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.available_quantity}</td>
                             <td className="text-center text-sm font-semibold text-white px-4 py-4">
-                                <button
-                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                    onClick={() => viewDetails(toy.id)}
-                                >
-                                    View Details
-                                </button>
+                                <Link to={`/addedtoy/${toy._id}`}><button className="btn btn-primary">
+                                    Details
+                                </button></Link>
                             </td>
                         </tr>
                     ))}
