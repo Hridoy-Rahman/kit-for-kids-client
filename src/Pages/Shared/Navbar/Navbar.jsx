@@ -14,31 +14,8 @@ const Navbar = () => {
             .catch((error) => console.log(error));
     };
 
-    useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        console.log(storedUser);
-        setSignedUser(storedUser);
-        Aos.init()
 
-        const fetchUserPhoto = async () => {
-            try {
-                const response = await fetch(`API_ENDPOINT/users/photo?email=${storedUser.email}`);
-                const data = await response.json();
-                if (response.ok) {
-                    setSignedUser((prevUser) => ({ ...prevUser, photo: data.photo }));
-                } else {
-                    console.log('Failed to fetch user photo');
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        if (storedUser && storedUser.email) {
-            fetchUserPhoto();
-        }
-    }, []);
-
+        
     const options = (
         <>
             <li>

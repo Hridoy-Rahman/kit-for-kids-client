@@ -11,6 +11,7 @@ import AddedToyDetails from "../Pages/AddedToyDetails/AddedToyDetails";
 import MyToys from "../Pages/MyToys/MyToys";
 import PrivateRoute from "./PrivateRoutes";
 import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
+import UpdateToy from "../Pages/MyToys/UpdateToy";
 
 
 
@@ -54,10 +55,15 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/addedToy/${params.id}`)
       },
       {
-        path: 'mytoys/:user_email',
+        path: 'myToys?email=user_email',
         element: <PrivateRoute><MyToys /></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/addedToy?user_email=${params.user_email}`)
 
+      },
+      {
+        path: 'updateToy/:id',
+        element: <PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
       },
     ]
   },

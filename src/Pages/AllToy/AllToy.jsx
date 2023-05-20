@@ -38,8 +38,8 @@ function AllToys() {
             <table className="table-auto w-full">
                 <thead>
                     <tr>
-                        <th className="px-4 text-xl font-bold py-2">Seller</th>
                         <th className="px-4 text-xl font-bold py-2">Toy Name</th>
+                        <th className="px-4 text-xl font-bold py-2">Seller</th>
                         <th className="px-4 text-xl font-bold py-2">Sub-category</th>
                         <th className="px-4 text-xl font-bold py-2">Price</th>
                         <th className="px-4 text-xl font-bold py-2">Available Quantity</th>
@@ -49,8 +49,8 @@ function AllToys() {
                 <tbody>
                     {filteredToys.map((toy) => (
                         <tr key={toy._id}>
-                            <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.seller_name}</td>
                             <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.name}</td>
+                            <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.seller_name}</td>
                             <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.sub_category}</td>
                             <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.price}</td>
                             <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.available_quantity}</td>
