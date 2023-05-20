@@ -18,6 +18,7 @@ const Products = () => {
     const mathToys = educationalToys.filter((product) => product.sub_category === 'Math Toys');
     const scienceToys = educationalToys.filter((product) => product.sub_category === 'Science Toys');
     const languageToys = educationalToys.filter((product) => product.sub_category === 'Language Toys');
+    
 
     const toyCars = products.filter((product) => product.category === 'Toy Cars');
     const sportsCars = toyCars.filter((product) => product.sub_category === 'Sports Car');
@@ -55,7 +56,7 @@ const Products = () => {
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {engineeringToys.map((product) => (
 
-                                    <ProductCard key={product.product_id}
+                                    <ProductCard key={product._id}
                                         product={product}
                                         className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
 
@@ -66,7 +67,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {mathToys.map((product) => (
-                                    <ProductCard key={product.product_id}
+                                    <ProductCard key={product._id}
                                         product={product}
                                         className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
 
@@ -77,7 +78,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {scienceToys.map((product) => (
-                                    <ProductCard key={product.product_id}
+                                    <ProductCard key={product._id}
                                         product={product}
                                         className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
 
@@ -88,7 +89,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {languageToys.map((product) => (
-                                    <ProductCard key={product.product_id}
+                                    <ProductCard key={product._id}
                                         product={product}
                                         className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
 
@@ -110,7 +111,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {sportsCars.map((product) => (
-                                    <ProductCard key={product.product_id}
+                                    <ProductCard key={product._id}
                                         product={product}
                                         className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
 
@@ -121,7 +122,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {regularCars.map((product) => (
-                                    <ProductCard key={product.product_id}
+                                    <ProductCard key={product._id}
                                         product={product}
                                         className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
 
@@ -132,7 +133,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {trucks.map((product) => (
-                                    <ProductCard key={product.product_id}
+                                    <ProductCard key={product._id}
                                         product={product}
                                         className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
 
@@ -154,7 +155,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {villains.map((product) => (
-                                    <ProductCard key={product.product_id}
+                                    <ProductCard key={product._id}
                                         product={product}
                                         className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
 
@@ -165,7 +166,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {superheroes.map((product) => (
-                                    <ProductCard key={product.product_id}
+                                    <ProductCard key={product._id}
                                         product={product}
                                         className="card w-80 bg-base-100 shadow-xl py-2 mb-6 "></ProductCard>
 
@@ -176,7 +177,7 @@ const Products = () => {
                         <TabPanel>
                             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8  justify-items-center'>
                                 {heroes.map((product) => (
-                                    <ProductCard key={product.product_id}
+                                    <ProductCard key={product._id}
                                         product={product}
                                         ></ProductCard>
 

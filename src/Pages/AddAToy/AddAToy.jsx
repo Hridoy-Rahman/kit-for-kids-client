@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import 'tailwindcss/tailwind.css';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const AddAToy = () => {
+    const {user}=useContext(AuthContext)
+    console.log(user)
     const [toyData, setToyData] = useState({
         pictureUrl: '',
         name: '',
@@ -35,7 +38,7 @@ const AddAToy = () => {
         const description = form.detailDescription.value;
 
         const addedToy = {
-            name, picture_url, seller_email, seller_name, price, category, sub_category, description, available_quantity, rating
+            name, picture_url, seller_email, seller_name, price, category, sub_category, description, available_quantity, rating,user_email:user.email
         }
         console.log(addedToy)
         fetch('http://localhost:5000/addedtoy', {
