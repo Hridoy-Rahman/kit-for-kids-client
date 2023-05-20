@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import Aos from 'aos';
 
 const Navbar = () => {
     const [hovered, setHovered] = useState(false);
@@ -17,6 +18,7 @@ const Navbar = () => {
         const storedUser = JSON.parse(localStorage.getItem('user'));
         console.log(storedUser);
         setSignedUser(storedUser);
+        Aos.init()
 
         const fetchUserPhoto = async () => {
             try {
@@ -70,7 +72,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="navbar bg-base-100 mb-12 p-4 items-center">
+        <div data-aos="zoom-in" className="navbar bg-base-100 mb-12 p-4 items-center">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
