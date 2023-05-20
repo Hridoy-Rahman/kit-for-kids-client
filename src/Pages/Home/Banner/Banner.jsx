@@ -1,7 +1,12 @@
+import Aos from "aos";
+import { useEffect } from "react";
 
 const Banner = () => {
+    useEffect(() => {
+        Aos.init();
+      }, []);
     return (
-        <div className="carousel w-full lg:h-[600px] mb-12">
+        <div data-aos="zoom-in-up" className="carousel w-full lg:h-[600px] mb-12">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src='https://i.ibb.co/3y59FDT/image2.png' className="w-full rounded-xl" />
                 <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">

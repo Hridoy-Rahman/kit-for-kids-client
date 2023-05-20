@@ -1,11 +1,15 @@
-import React from 'react';
+import Aos from 'aos';
+import React, { useEffect } from 'react';
 
 const About = () => {
+    useEffect(() => {
+        Aos.init();
+      }, []);
     return (
-        <section className="p-4 mb-12">
+        <section data-aos="flip" className="p-4 mb-12">
             <h2 className='text-5xl font-bold text-center mb-8 text-orange-500'>About Us</h2>
             <div className="flex flex-col lg:flex-row-reverse p-4 gap-6 items-center">
-                <div className="text-2xl font-semibold text-white">
+                <div data-aos="fade-left" className="text-2xl font-semibold text-white">
                     <p>
                         At Kit for Kids, we believe in providing quality educational resources
                         for children. Our mission is to inspire young minds, encourage
@@ -18,7 +22,7 @@ const About = () => {
                         journey of exploration and discovery!
                     </p>
                 </div>
-                <div className="">
+                <div data-aos="fade-right" className="">
                     <img className='rounded-xl' src="https://i.ibb.co/kSTtWxy/kids-art-kits-1524500188.jpg" alt="About Us" />
                 </div>
             </div>

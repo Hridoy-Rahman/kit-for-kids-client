@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HiEnvelope, HiPhone, HiMapPin } from "react-icons/hi2";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import Aos from 'aos';
 
 const Footer = () => {
+    useEffect(() => {
+        Aos.init();
+      }, []);
     return (
-        <footer className=" p-10 bg-base-200 text-base-content flex-row-reverse lg:flex lg:flex-row lg:gap-4 justify-between">
+        <footer data-aos="fade-up" className="  p-10 bg-base-200 text-base-content flex-row-reverse lg:flex lg:flex-row lg:gap-4 justify-between">
             <div className='mb-8 '>
                 <img className='h-12' src="https://i.ibb.co/KLj30WC/logo.png" alt="" />
                 <p>Kits For Kids<br />Providing best service</p>

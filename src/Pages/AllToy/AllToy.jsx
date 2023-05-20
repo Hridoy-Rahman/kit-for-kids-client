@@ -1,3 +1,4 @@
+import Aos from 'aos';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -5,6 +6,9 @@ function AllToys() {
     const [toys, setToys] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [limit, setLimit] = useState(20);
+    useEffect(() => {
+        Aos.init();
+      }, []);
 
     useEffect(() => {
         fetch(`http://localhost:5000/addedtoy`)
@@ -23,7 +27,7 @@ function AllToys() {
     };
 
     return (
-        <div className="container mx-auto px-4 mb-12">
+        <div data-aos="zoom-out" className="container mx-auto px-4 mb-12">
             <h1 className="text-3xl font-bold mb-4">All Toys</h1>
             <input
                 type="text"

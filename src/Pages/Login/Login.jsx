@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import GoogleLogin from './GoogleLogin';
+import Aos from 'aos';
 
 
 const Login = () => {
@@ -17,6 +19,9 @@ const Login = () => {
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
+    useEffect(() => {
+        Aos.init();
+      }, []);
 
     const handleLogIn = (event) => {
         event.preventDefault();
@@ -47,7 +52,7 @@ const Login = () => {
 
     return (
         <div className="hero  bg-base-200 lg:mb-12">
-            <div className="hero-content  lg:w-3/4 p-6 lg:p-12">
+            <div data-aos="zoom-in" className="hero-content  lg:w-3/4 p-6 lg:p-12">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <h1 className="text-5xl font-bold mb-8 text-center">Login</h1>
@@ -87,6 +92,7 @@ const Login = () => {
                             </div>
                         </form>
                         <p className='text-center my-4'>Don't Have Account? <Link className='text-orange-500 font-bold' to='/signup'>Sign Up</Link></p>
+                        <GoogleLogin></GoogleLogin>
                     </div>
                 </div>
             </div>

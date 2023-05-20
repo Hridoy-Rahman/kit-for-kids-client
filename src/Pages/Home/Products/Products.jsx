@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ProductCard from './ProductCard';
+import Aos from 'aos';
 
 const Products = () => {
     const [products, setProducts] = useState([]);

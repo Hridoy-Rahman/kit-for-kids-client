@@ -2,12 +2,17 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Aos from 'aos';
 
 function MyToys() {
     const { user } = useContext(AuthContext);
     const { user_email } = useParams();
     const [myToy, setMyToy] = useState([]);
-    console.log(user_email)
+    console.log(user_email);
+
+    useEffect(() => {
+        Aos.init();
+      }, []);
 
     useEffect(() => {
         fetch(`http://localhost:5000/addedToy?user_email=${user_email}`)
@@ -21,7 +26,7 @@ function MyToys() {
     }, [user_email]);
 
     return (
-        <div className="container mx-auto px-4 mb-12">
+        <div data-aos="zoom-in-up" className="container mx-auto px-4 mb-12">
             <h1 className="text-3xl text-center font-bold mb-4">My Toys</h1>
             <table className="table-auto w-full">
                 <thead>

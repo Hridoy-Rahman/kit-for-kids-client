@@ -1,7 +1,11 @@
-import React from "react";
+import Aos from "aos";
+import React, { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const ToyDetails = () => {
+    useEffect(() => {
+        Aos.init();
+      }, []);
 
     const toy = useLoaderData()
 

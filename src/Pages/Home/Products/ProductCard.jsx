@@ -1,10 +1,16 @@
-import React from 'react';
+import Aos from 'aos';
+import React, { useEffect } from 'react';
 import { FaArrowRight, FaStar, FaStarHalf } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
+    useEffect(()=>{
+        Aos.init();
+    },[])
+
+
     return (
-        <div className="card w-80 bg-base-100 shadow-xl py-2 mb-6 text-start">
+        <div data-aos="fade-up" className="card w-80 bg-base-100 shadow-xl py-2 mb-6 text-start">
             <figure>
                 <img
                     className="h-60 w-60 rounded-xl"
