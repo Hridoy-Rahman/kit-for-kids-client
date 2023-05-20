@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import About from '../About/About';
-import FeatureProduct from '../FeatureProduct/FeatureProduct';
+import FeatureProduct from '../FeatureProduct/Features';
 import Products from '../Products/Products';
 // import PhotoGallery from '../PhotoGallery/PhotoGallery';
 import Gallery from '../PhotoGallery/PhotoGallery';
