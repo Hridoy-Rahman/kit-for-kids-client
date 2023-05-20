@@ -1,29 +1,48 @@
 import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
-    const [passwordVisible, setPasswordVisible] = useState(false)
-    const { registerUser } = useContext(AuthContext)
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const { registerUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
 
     const handleSignup = (event) => {
-        event.preventDefault()
+        event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirmPassword=form.confirmPassword.value;
         const photo = form.photo.value;
 
-        registerUser(email, password,photo,name)
+        if (password !== confirmPassword) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Password did not match',
+                text: 'The password and confirm password do not match.',
+            });
+            return;
+        }
+
+        registerUser(email, password, photo, name)
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+
+                if (location.state && location.state.from) {
+                    navigate(location.state.from);
+                } else {
+                    navigate('/');
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -31,11 +50,9 @@ const SignUp = () => {
                     icon: 'error',
                     title: 'Sorry...',
                     text: 'Your email has already been used',
-                })
+                });
             });
-
-
-    }
+    };
     return (
         <div className="hero  bg-base-200 lg:mb-12">
             <div className="hero-content  lg:w-3/4 p-6 lg:p-12">
@@ -77,6 +94,29 @@ const SignUp = () => {
 
 
                             </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Confirm Password</span>
+                                </label>
+                                <div className='flex items-center'>
+                                    <input
+                                        type={passwordVisible ? 'text' : 'password'}
+                                        name='confirmPassword'
+                                        placeholder='Confirm Password'
+                                        className='input input-bordered'
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                    />
+                                    <button
+                                        type='button'
+                                        onClick={togglePasswordVisibility}
+                                        className='btn btn-circle btn-xs ml-2'
+                                    >
+                                        {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+                                    </button>
+                                </div>
+                            </div>
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>

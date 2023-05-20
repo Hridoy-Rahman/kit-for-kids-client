@@ -10,6 +10,7 @@ import AddAToy from "../Pages/AddAToy/AddAToy";
 import AddedToyDetails from "../Pages/AddedToyDetails/AddedToyDetails";
 import MyToys from "../Pages/MyToys/MyToys";
 import PrivateRoute from "./PrivateRoutes";
+import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
 
 
 
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
 
       ]
     },
+    {
+      path: '*',
+      element: <NotFoundPage></NotFoundPage>,
+    }
   ]);
 
   export default router;
