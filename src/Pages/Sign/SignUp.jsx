@@ -21,7 +21,7 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const confirmPassword=form.confirmPassword.value;
+        const confirmPassword = form.confirmPassword.value;
         const photo = form.photo.value;
 
         if (password !== confirmPassword) {
@@ -37,6 +37,10 @@ const SignUp = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                const userObject = { email, photo, name };
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                users.push(userObject);
+                localStorage.setItem('users', JSON.stringify(users));
 
                 if (location.state && location.state.from) {
                     navigate(location.state.from);
@@ -53,6 +57,7 @@ const SignUp = () => {
                 });
             });
     };
+
     return (
         <div className="hero  bg-base-200 lg:mb-12">
             <div className="hero-content  lg:w-3/4 p-6 lg:p-12">

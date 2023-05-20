@@ -15,56 +15,56 @@ import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
 
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children:[
-        {
-           path:'/',
-           element:<Home></Home>
-        },
-        {
-            path:'login',
-            element: <Login></Login>
-        },
-        {
-            path:'signup',
-            element:<SignUp></SignUp>
-        },
-        {
-            path:'blogs',
-            element: <Blogs></Blogs>
-        },
-        {
-          path:"alltoy",
-          element: <PrivateRoute><AllToy></AllToy></PrivateRoute>
-        },
-        {
-          path:"addatoy",
-          element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
-        },
-        {
-          path:"toydetails/:id",
-          element:<PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-          loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
-        },
-        {
-          path:"addedtoy/:id",
-          element:<PrivateRoute><AddedToyDetails></AddedToyDetails></PrivateRoute>,
-          loader: ({params})=>fetch(`http://localhost:5000/addedToy/${params.id}`)
-        },
-        {
-          path: "/addedtoy/:user_email",
-          element:<PrivateRoute><MyToys></MyToys></PrivateRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/addedToy?user_email=${params.user_email}`)
-        }
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: 'login',
+        element: <Login></Login>
+      },
+      {
+        path: 'signup',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: 'blogs',
+        element: <Blogs></Blogs>
+      },
+      {
+        path: "alltoy",
+        element: <PrivateRoute><AllToy></AllToy></PrivateRoute>
+      },
+      {
+        path: "addatoy",
+        element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
+      },
+      {
+        path: "toydetails/:id",
+        element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+      },
+      {
+        path: "addedtoy/:id",
+        element: <PrivateRoute><AddedToyDetails></AddedToyDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/addedToy/${params.id}`)
+      },
+      {
+        path: 'mytoys/:user_email',
+        element: <PrivateRoute><MyToys /></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/addedToy?user_email=${params.user_email}`)
 
-      ]
-    },
-    {
-      path: '*',
-      element: <NotFoundPage></NotFoundPage>,
-    }
-  ]);
+      },
+    ]
+  },
+  {
+    path: '*',
+    element: <NotFoundPage></NotFoundPage>,
+  }
+]);
 
-  export default router;
+export default router;

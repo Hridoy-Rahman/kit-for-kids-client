@@ -1,15 +1,28 @@
 
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 function MyToys() {
-    const { user_email } = useParams(); // Retrieve the user_email from the route params
-  const myToy = useLoaderData();
+    const { user } = useContext(AuthContext);
+    const { user_email } = useParams();
+    const [myToy, setMyToy] = useState([]);
+    console.log(user_email)
 
-   
+    useEffect(() => {
+        fetch(`http://localhost:5000/addedToy?user_email=${user_email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setMyToy(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [user_email]);
 
     return (
         <div className="container mx-auto px-4 mb-12">
-            <h1 className="text-3xl text-center font-bold mb-4">All Toys</h1>
+            <h1 className="text-3xl text-center font-bold mb-4">My Toys</h1>
             <table className="table-auto w-full">
                 <thead>
                     <tr>
@@ -38,13 +51,13 @@ function MyToys() {
                     ))}
                 </tbody>
             </table>
-            {filteredToys.length >= limit && (
+            {/* {filteredToys.length >= limit && (
                 <button
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
                 >
                     See More
                 </button>
-            )}
+            )} */}
         </div>
     );
 }
