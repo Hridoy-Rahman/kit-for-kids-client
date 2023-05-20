@@ -10,8 +10,8 @@ export default function Gallery() {
       .then((data) => {
         const fetchedPhotos = data.map(({ picture_url}) => ({
           src: picture_url,
-          width:"200px",
-          height:"200px",
+          width:"20px",
+          height:"20px",
         }));
         setPhotos(fetchedPhotos);
       })
