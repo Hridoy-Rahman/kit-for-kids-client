@@ -4,13 +4,12 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import Aos from 'aos';
 
 const Navbar = () => {
+    const { user, logOut, signedUser } = useContext(AuthContext);
     const [hovered, setHovered] = useState(false);
-    const { user, logOut } = useContext(AuthContext);
-    const [signedUser, setSignedUser] = useState(null);
 
     const handleLogout = () => {
         logOut()
-            .then(() => {})
+            .then(() => { })
             .catch((error) => console.log(error));
     };
 
@@ -34,7 +33,7 @@ const Navbar = () => {
                         <Link to={`/mytoys/${user.user_email}`}>My Toys</Link>
                     </li>
                     <li>
-                        <button onClick={handleLogout}>log Out</button>
+                        <button onClick={handleLogout}>Log Out</button>
                     </li>
                 </>
             ) : (
@@ -46,7 +45,7 @@ const Navbar = () => {
     );
 
     useEffect(() => {
-        Aos.init({ duration: 1000 });
+        Aos.init();
     }, []);
 
     return (
@@ -64,10 +63,7 @@ const Navbar = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </label>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-                    >
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         {options}
                     </ul>
                 </div>
@@ -97,9 +93,11 @@ const Navbar = () => {
                                         <div className="tooltip">{signedUser.name}</div>
                                     </>
                                 ) : (
-                                    <>
-                                        <img className="h-8 w-8 rounded" src={signedUser.photo} alt="" />
-                                    </>
+                                    <img
+                                        className="h-8 w-8 rounded"
+                                        src={signedUser.photo}
+                                        alt={signedUser.name}
+                                    />
                                 )
                             ) : (
                                 <img

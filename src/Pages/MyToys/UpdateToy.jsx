@@ -13,11 +13,11 @@ function UpdateToy() {
         try {
           const response = await fetch(`https://kit-for-kids-server.vercel.app/addedToy/${id}`);
           const data = await response.json();
-          console.log(id,data.price,data.user_email)
-
+          
           setPrice(data.price);
           setAvailableQuantity(data.availableQuantity);
           setDescription(data.description);
+          console.log(id,data.price,data.user_email,data.seller_email)
         } catch (error) {
           console.log(error);
         }
@@ -30,9 +30,10 @@ function UpdateToy() {
       event.preventDefault();
       const updatedToyData = {
         price,
-        availableQuantity,
+        available_quantity: availableQuantity,
         description,
       };
+      console.log()
   
       try {
         const response = await fetch(`https://kit-for-kids-server.vercel.app/addedToy/${id}`, {
@@ -44,6 +45,7 @@ function UpdateToy() {
         });
   
         if (response.ok) {
+            console.log(updatedToyData)
           Swal.fire('Success!', 'Toy updated successfully.', 'success');
         } else {
           console.log('Failed to update toy');
