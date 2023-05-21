@@ -42,7 +42,7 @@ const Features = () => {
     }, []);
 
     return (
-        <section className="mb-12">
+        <section className="mb-12 p-4">
             <h2 className="text-5xl text-center text-orange-500 mb-8">Our Kit for Kids Features</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-blue-500">
                 <div data-aos="fade-up-right">

@@ -75,12 +75,12 @@ function MyToys() {
                 <tbody>
                     {myToy.map((toy) => (
                         <tr key={toy._id}>
-                            <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.name}</td>
-                            <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.seller_name}</td>
-                            <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.sub_category}</td>
-                            <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.price}</td>
-                            <td className="text-center text-xl font-semibold text-white px-4 py-4">{toy.available_quantity}</td>
-                            <td className="text-center text-sm font-semibold text-white px-4 py-4">
+                            <td className="text-center text-xl font-semibold text-blue-700 p-2">{toy.name}</td>
+                            <td className="text-center text-xl font-semibold text-blue-700 p-2">{toy.seller_name}</td>
+                            <td className="text-center text-xl font-semibold text-blue-700 p-2">{toy.sub_category}</td>
+                            <td className="text-center text-xl font-semibold text-blue-700 p-2">{toy.price}</td>
+                            <td className="text-center text-xl font-semibold text-blue-700 p-2">{toy.available_quantity}</td>
+                            <td className="text-center text-sm font-semibold text-blue-700 p-2">
                                 <Link to={`/updateToy/${toy._id}`}>
                                     <button className="btn btn-primary">Update</button>
                                 </Link>

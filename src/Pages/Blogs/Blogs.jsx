@@ -12,7 +12,7 @@ function Blogs() {
             <h2 className='text-5xl font-bold text-center text-blue-800 mb-12'>Here Our Blogs</h2>
             <div className='bg-white p-8 mb-12 rounded-xl'>
 
-                <div data-aos="flip-up" className="border-2 p-8">
+                <div data-aos="flip-up" className="border-2 rounded-xl p-2 mb-4">
                     <h3 className='text-2xl font-bold text-cyan-800'>* What is an access token and refresh token? How do they work and where should we store them on the client-side?</h3>
                     <div className='text-xl font-bold text-blue-500 mb-8'>
                         <p>
@@ -25,7 +25,7 @@ function Blogs() {
                     </div>
                 </div>
 
-                <div  data-aos="flip-up" className="">
+                <div  data-aos="flip-up" className="border-2 rounded-xl p-2 mb-4">
                     <h3 className='text-2xl font-bold text-cyan-800'>Compare SQL and NoSQL databases?</h3>
                     <div className='text-xl font-bold text-blue-500 mb-8'>
                         <p>
@@ -40,7 +40,7 @@ function Blogs() {
                     </div>
                 </div>
 
-                <div  data-aos="flip-up" className="">
+                <div  data-aos="flip-up" className="border-2 rounded-xl p-2 mb-4">
                     <h3 className='text-2xl font-bold text-cyan-800'>What is Express.js? What is Nest.js (google it)?</h3>
                     <div className='text-xl font-bold text-blue-500 mb-8'>
                         <p>
@@ -52,7 +52,7 @@ function Blogs() {
                     </div>
                 </div>
 
-                <div  data-aos="flip-up" className="">
+                <div  data-aos="flip-up" className="border-2 rounded-xl p-2 mb-4">
                     <h3 className='text-2xl font-bold text-cyan-800'>What is MongoDB Aggregate and how does it work (google it)?</h3>
                     <div className='text-xl font-bold text-blue-500 mb-8'>
                         <p>

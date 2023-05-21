@@ -86,7 +86,7 @@ const Navbar = () => {
                                 hovered ? (
                                     <>
                                         <img
-                                            className="h-8 w-8 rounded"
+                                            className="h-8 w-8 rounded-full"
                                             src={signedUser.photo}
                                             alt={signedUser.name}
                                         />
@@ -94,14 +94,14 @@ const Navbar = () => {
                                     </>
                                 ) : (
                                     <img
-                                        className="h-8 w-8 rounded"
+                                        className="h-8 w-8 rounded-full"
                                         src={signedUser.photo}
                                         alt={signedUser.name}
                                     />
                                 )
                             ) : (
                                 <img
-                                    className="h-8 w-8 rounded"
+                                    className="h-8 w-8 rounded-full"
                                     src="https://i.ibb.co/Q69zGY7/profile-Logo.png"
                                     alt=""
                                 />
