@@ -3,59 +3,54 @@ import { useLoaderData, useParams } from 'react-router';
 import Swal from 'sweetalert2';
 
 function UpdateToy() {
-    const { id } = useParams();
-    const user=useLoaderData()
-    const [price, setPrice] = useState(0);
-    const [availableQuantity, setAvailableQuantity] = useState(0);
+    const {id} = useParams();
+    const [price, setPrice] = useState();
+    const [availableQuantity, setAvailableQuantity] = useState();
     const [description, setDescription] = useState('');
-    console.log(user)
-
+  
     useEffect(() => {
-        const fetchToyDetails = async () => {
-            try {
-                const response = await fetch(`http://localhost:5000/addedToy/${user._id}`);
-                const data = await response.json();
-
-                setPrice(data.price);
-                setAvailableQuantity(data.availableQuantity);
-                setDescription(data.description);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        fetchToyDetails();
-    }, [id]);
-
-    const handleUpdateToy = async (event) => {
-        event.preventDefault();
-        const updatedToyData = {
-            price,
-            availableQuantity,
-            description,
-        };
-
+      const fetchToyDetails = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/addedToy/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(updatedToyData),
-            });
+          const response = await fetch(`https://kit-for-kids-server.vercel.app/addedToy/${id}`);
+          const data = await response.json();
+          console.log(id,data.price,data.user_email)
 
-            if (response.ok) {
-                Swal.fire(
-                    'Success!',
-                    'Your Order has been canceled.',
-                    'success'
-                );
-            } else {
-                console.log('Failed to update toy');
-            }
+          setPrice(data.price);
+          setAvailableQuantity(data.availableQuantity);
+          setDescription(data.description);
         } catch (error) {
-            console.log(error);
+          console.log(error);
         }
+      };
+  
+      fetchToyDetails();
+    }, [id]);
+  
+    const handleUpdateToy = async (event) => {
+      event.preventDefault();
+      const updatedToyData = {
+        price,
+        availableQuantity,
+        description,
+      };
+  
+      try {
+        const response = await fetch(`https://kit-for-kids-server.vercel.app/addedToy/${id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedToyData),
+        });
+  
+        if (response.ok) {
+          Swal.fire('Success!', 'Toy updated successfully.', 'success');
+        } else {
+          console.log('Failed to update toy');
+        }
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     return (

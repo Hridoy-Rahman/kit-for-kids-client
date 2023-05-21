@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -13,8 +14,6 @@ import PrivateRoute from "./PrivateRoutes";
 import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
 import UpdateToy from "../Pages/MyToys/UpdateToy";
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,54 +21,134 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: (
+          <>
+            <Helmet>
+              <title>Kits for Kids | Home</title>
+            </Helmet>
+            <Home></Home>
+          </>
+        )
       },
       {
         path: 'login',
-        element: <Login></Login>
+        element: (
+          <>
+            <Helmet>
+              <title>Kits for Kids | Login</title>
+            </Helmet>
+            <Login></Login>
+          </>
+        )
       },
       {
         path: 'signup',
-        element: <SignUp></SignUp>
+        element: (
+          <>
+            <Helmet>
+              <title>Kits for Kids | Sign Up</title>
+            </Helmet>
+            <SignUp></SignUp>
+          </>
+        )
       },
       {
         path: 'blogs',
-        element: <Blogs></Blogs>
+        element: (
+          <>
+            <Helmet>
+              <title>Kits for Kids | Blogs</title>
+            </Helmet>
+            <Blogs></Blogs>
+          </>
+        )
       },
       {
         path: "alltoy",
-        element: <PrivateRoute><AllToy></AllToy></PrivateRoute>
+        element: (
+          <>
+            <Helmet>
+              <title>Kits for Kids | All Toys</title>
+            </Helmet>
+            <PrivateRoute><AllToy></AllToy></PrivateRoute>
+          </>
+        )
       },
       {
         path: "addatoy",
-        element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
+        element: (
+          <>
+            <Helmet>
+              <title>Kits for Kids | Add a Toy</title>
+            </Helmet>
+            <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
+          </>
+        )
       },
       {
         path: "toydetails/:id",
-        element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <Helmet titleTemplate="%s | Toy Details">
+              <title>Kits for Kids</title>
+            </Helmet>
+            <ToyDetails></ToyDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`https://kit-for-kids-server.vercel.app/products/${params.id}`)
       },
       {
         path: "addedtoy/:id",
-        element: <PrivateRoute><AddedToyDetails></AddedToyDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/addedToy/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <Helmet titleTemplate="%s | Added Toy Details">
+              <title>Kits for Kids</title>
+            </Helmet>
+            <AddedToyDetails></AddedToyDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`https://kit-for-kids-server.vercel.app/addedToy/${params.id}`)
       },
       {
-        path: 'myToys?email=user_email',
-        element: <PrivateRoute><MyToys /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/addedToy?user_email=${params.user_email}`)
-
+        path: 'myToys/:user_email',
+        element: (
+          <PrivateRoute>
+            <Helmet titleTemplate="%s | My Toys">
+              <title>Kits for Kids</title>
+            </Helmet>
+            <MyToys />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
+          const url = `https://kit-for-kids-server.vercel.app/addedToy?user_email=${params.user_email}`;
+          console.log(params)
+          return fetch(url).then(response => response.json());
+        }
       },
       {
         path: 'updateToy/:id',
-        element: <PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <Helmet titleTemplate="%s | Update Toy">
+              <title>Kits for Kids</title>
+            </Helmet>
+            <UpdateToy></UpdateToy>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`https://kit-for-kids-server.vercel.app/addedToy/${params.id}`)
       },
     ]
   },
   {
     path: '*',
-    element: <NotFoundPage></NotFoundPage>,
+    element: (
+      <>
+        <Helmet>
+          <title>Kit For Kids | Not Found</title>
+        </Helmet>
+        <NotFoundPage></NotFoundPage>
+      </>
+    ),
   }
 ]);
 

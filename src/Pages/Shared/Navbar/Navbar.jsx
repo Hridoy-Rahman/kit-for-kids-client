@@ -10,12 +10,10 @@ const Navbar = () => {
 
     const handleLogout = () => {
         logOut()
-            .then(() => { })
+            .then(() => {})
             .catch((error) => console.log(error));
     };
 
-
-        
     const options = (
         <>
             <li>
@@ -34,7 +32,6 @@ const Navbar = () => {
                     </li>
                     <li>
                         <Link to={`/mytoys/${user.user_email}`}>My Toys</Link>
-
                     </li>
                     <li>
                         <button onClick={handleLogout}>log Out</button>
@@ -48,8 +45,12 @@ const Navbar = () => {
         </>
     );
 
+    useEffect(() => {
+        Aos.init({ duration: 1000 });
+    }, []);
+
     return (
-        <div data-aos="zoom-in" className="navbar bg-base-100 mb-12 p-4 items-center">
+        <div data-aos="zoom-in" className="navbar bg-base-100 mb-12 p-4 items-center relative z-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -60,15 +61,13 @@ const Navbar = () => {
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                         >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16"
-                            />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul
+                        tabIndex={0}
+                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                    >
                         {options}
                     </ul>
                 </div>
@@ -90,7 +89,11 @@ const Navbar = () => {
                             {signedUser?.photo ? (
                                 hovered ? (
                                     <>
-                                        <img className="h-8 w-8 rounded" src={signedUser.photo} alt={signedUser.name} />
+                                        <img
+                                            className="h-8 w-8 rounded"
+                                            src={signedUser.photo}
+                                            alt={signedUser.name}
+                                        />
                                         <div className="tooltip">{signedUser.name}</div>
                                     </>
                                 ) : (

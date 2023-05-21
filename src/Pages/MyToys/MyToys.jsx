@@ -6,9 +6,8 @@ import Swal from 'sweetalert2';
 
 function MyToys() {
     const { user } = useContext(AuthContext);
-    const ser=useLoaderData()
-    console.log(ser)
     const [myToy, setMyToy] = useState([]);
+    // console.log(user)
 
 
 
@@ -17,7 +16,7 @@ function MyToys() {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/addedToy?user_email=${user.email}`)
+        fetch(`https://kit-for-kids-server.vercel.app/addedToy?user_email=${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setMyToy(data);
@@ -25,7 +24,7 @@ function MyToys() {
             .catch((error) => {
                 console.log(error);
             });
-    }, [user.email]);
+    }, [user]);
 
     const handleDeleteToy = id => {
         Swal.fire({
@@ -37,7 +36,7 @@ function MyToys() {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) { 
-                fetch(`http://localhost:5000/addedToy/${id}`, {
+                fetch(`https://kit-for-kids-server.vercel.app/addedToy/${id}`, {
 
                     method: 'DELETE'
                 })
@@ -47,7 +46,7 @@ function MyToys() {
                     if (data.deletedCount > 0) {
                         Swal.fire(
                             'Deleted!',
-                            'Your toy has been Deleted.',
+                            'Your Toy has been Deleted.',
                             'success'
                         );
     

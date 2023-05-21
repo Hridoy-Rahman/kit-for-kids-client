@@ -41,7 +41,7 @@ const AddAToy = () => {
             name, picture_url, seller_email, seller_name, price, category, sub_category, description, available_quantity, rating,user_email:user.email
         }
         console.log(addedToy)
-        fetch('http://localhost:5000/addedtoy', {
+        fetch('https://kit-for-kids-server.vercel.app/addedtoy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

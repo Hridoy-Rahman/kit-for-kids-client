@@ -11,7 +11,7 @@ function AllToys() {
       }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/addedtoy`)
+        fetch(`https://kit-for-kids-server.vercel.app/addedtoy`)
             .then((response) => response.json())
             .then((data) => setToys(data))
             .catch((error) => console.error(error));
